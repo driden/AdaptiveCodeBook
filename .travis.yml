@@ -5,3 +5,4 @@ dotnet: 2.2
 script:
  - dotnet restore
  - dotnet build --no-restore
+ - dotnet test --no-build -t --verbosity minimal
