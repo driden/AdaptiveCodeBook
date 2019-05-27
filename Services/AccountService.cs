@@ -1,5 +1,6 @@
 ﻿namespace Services
 {
+    using Domain;
     using RepositoryInterfaces;
     using System;
 
@@ -20,7 +21,16 @@
         public void AddTransactionToAccount(string uniqueAccountName, decimal amount)
         {
             var account = repository.GetByName(uniqueAccountName);
-            account.AddTransaction(amount);
+            if (account == null) return;
+
+            try
+            {
+                account.AddTransaction(amount);
+            }
+            catch (DomainException  domainException)
+            {
+                throw new ServiceException("Adding transaction to account failed.", domainException);
+            }
         }
     }
 }
