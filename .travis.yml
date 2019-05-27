@@ -4,4 +4,4 @@ language: csharp
 dotnet: 2.2
 script:
  - dotnet restore
- - dotnet build --no-dependencies --no-restore
+ - dotnet build --no-restore
