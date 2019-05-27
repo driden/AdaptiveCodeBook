@@ -1,7 +1,7 @@
 dist: xenial
 mono: none
 language: csharp
-dotnet: 2.2.107
+dotnet: 2.2
 script:
  - dotnet restore
  - dotnet build --no-dependencies --no-restore
